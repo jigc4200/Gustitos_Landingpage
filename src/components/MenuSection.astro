@@ -1,0 +1,78 @@
+---
+import { menuData } from '../data/menu.ts';
+
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  }).format(price);
+---
+
+<section id="menu" class="bg-cream-vanilla px-4 py-24">
+  <div class="mx-auto max-w-[1280px]">
+    <div class="mb-16 text-center">
+      <span
+        class="rounded-buttons bg-fresh-cyan px-4 py-1 font-sans-gustitos text-body-sm font-bold text-cocoa-brown"
+      >
+        Carta completa
+      </span>
+      <h2
+        class="mt-4 font-sans-gustitos text-heading font-extrabold leading-tight text-cocoa-brown sm:text-[56px] md:text-[72px]"
+      >
+        Nuestra carta
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-body text-cocoa-brown/80">
+        Helados artesanales, postres irresistibles, opciones saladas y bebidas
+        refrescantes. Todo hecho con ingredientes frescos y mucho cariño.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        menuData.map((category, index) => {
+          const isLilac = index % 2 === 0;
+          const bgClass = isLilac ? 'bg-pastel-lilac' : 'bg-neutral-white';
+          const badgeClass = isLilac ? 'bg-cream-vanilla' : 'bg-pastel-lilac';
+
+          return (
+            <article class={`rounded-cards ${bgClass} p-6 shadow-sm`}>
+              <div class="mb-6 flex items-center justify-between">
+                <h3 class="font-sans-gustitos text-heading-sm font-bold text-cocoa-brown">
+                  {category.category}
+                </h3>
+                <span
+                  class={`rounded-buttons ${badgeClass} px-3 py-1 font-sans-gustitos text-caption font-bold text-cocoa-brown`}
+                >
+                  {category.items.length} items
+                </span>
+              </div>
+
+              <ul class="space-y-4">
+                {category.items.map((item) => (
+                  <li class="border-b border-cocoa-brown/10 pb-4 last:border-b-0 last:pb-0">
+                    <div class="flex items-start justify-between gap-3">
+                      <div class="flex-1">
+                        <h4 class="font-sans-gustitos text-body font-bold text-cocoa-brown">
+                          {item.name}
+                        </h4>
+                        {item.description && (
+                          <p class="mt-1 text-body-sm leading-relaxed text-cocoa-brown/70">
+                            {item.description}
+                          </p>
+                        )}
+                      </div>
+                      <span class="shrink-0 font-sans-gustitos text-body font-bold text-cocoa-brown">
+                        {formatPrice(item.price)}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
