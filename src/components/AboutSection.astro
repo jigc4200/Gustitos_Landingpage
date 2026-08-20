@@ -18,11 +18,11 @@ const slides = [
           >
             {
               slides.map((slide) => (
-                <div class="carousel-slide w-full shrink-0">
+                <div class="carousel-slide flex w-full shrink-0 items-center justify-center">
                   <img
                     src={slide.src}
                     alt={slide.alt}
-                    class="mx-auto aspect-[4/3] w-full rounded-cards object-cover shadow-product"
+                    class="mx-auto aspect-[3/4] w-full max-w-[360px] rounded-cards object-cover object-center shadow-product sm:max-w-[420px]"
                   />
                 </div>
               ))
