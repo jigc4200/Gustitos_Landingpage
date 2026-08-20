@@ -1,0 +1,46 @@
+---
+const navLinks = [
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Productos', href: '#productos' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<header class="sticky top-4 z-50 px-4">
+  <nav
+    class="mx-auto flex max-w-[1280px] items-center justify-between rounded-[20px] bg-neutral-white/90 px-6 py-3 shadow-sm backdrop-blur-md"
+  >
+    <a href="#inicio" class="flex items-center gap-2">
+      <img
+        src="/gustitos_logo.png"
+        class="h-10 w-auto object-contain"
+      />
+      <span class="font-sans-gustitos text-xl font-bold tracking-wide text-cocoa-brown">
+        
+      </span>
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="font-sans-gustitos text-body-sm font-semibold text-cocoa-brown transition-colors hover:text-fresh-cyan"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="#pedir"
+      class="rounded-buttons bg-vibrant-yellow px-5 py-2.5 font-sans-gustitos text-body-sm font-bold text-cocoa-brown shadow-md transition-transform hover:scale-105 hover:shadow-lg"
+    >
+      Pedir Ahora
+    </a>
+  </nav>
+</header>

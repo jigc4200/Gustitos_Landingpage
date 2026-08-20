@@ -1,0 +1,75 @@
+---
+import ProductCard from './ProductCard.astro';
+
+const products = [
+  {
+    title: 'Cono Clásico',
+    description: 'Helado cremoso en cono waffle recién horneado, crujiente hasta el final.',
+    price: 'S/ 8.00',
+    image: '/cono_sinfondo.png',
+    variant: 'cream' as const,
+  },
+  {
+    title: 'Sundae Real',
+    description: 'Capas de helado, salsa de chocolate, crema batida y toppings coloridos.',
+    price: 'S/ 12.00',
+    image: '/sundae_sinfondo.png',
+    variant: 'lilac' as const,
+  },
+  {
+    title: 'Mini Waffle',
+    description: 'Waffle esponjoso servido con helado artesanal y frutas frescas.',
+    price: 'S/ 10.00',
+    image: '/miniwaflle_sinfondo.png',
+    variant: 'cream' as const,
+  },
+  {
+    title: 'Malteada Supreme',
+    description: 'Batida cremosa con trozos de galleta, chantilly y mucho sabor.',
+    price: 'S/ 14.00',
+    image: '/milkshake_sinfondo.png',
+    variant: 'lilac' as const,
+  },
+  {
+    title: 'Banana Split',
+    description: 'La clásica banana compartida con tres sabores y salsas irresistibles.',
+    price: 'S/ 16.00',
+    image: '/bannanasplit_sinfondo.png',
+    variant: 'cream' as const,
+  },
+  {
+    title: 'Teddy Helado',
+    description: 'Postre en forma de oso ideal para los más pequeños y soñadores.',
+    price: 'S/ 11.00',
+    image: '/teddy_sinfondo.png',
+    variant: 'lilac' as const,
+  },
+];
+---
+
+<section id="productos" class="bg-neutral-white px-4 py-24">
+  <div class="mx-auto max-w-[1280px]">
+    <div class="mb-16 text-center">
+      <span
+        class="rounded-buttons bg-bubblegum-pink px-4 py-1 font-sans-gustitos text-body-sm font-bold text-cocoa-brown"
+      >
+        Nuestro menú
+      </span>
+      <h2
+        class="mt-4 font-sans-gustitos text-heading font-extrabold leading-tight text-cocoa-brown sm:text-[56px] md:text-[72px]"
+      >
+        Sabores que alegran
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-body text-cocoa-brown/80">
+        Cada creación está hecha con ingredientes frescos y mucha imaginación.
+        Encuentra tu favorito y endulza tu día.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 gap-x-6 gap-y-24 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {products.map((product) => <ProductCard {...product} />)}
+    </div>
+  </div>
+</section>

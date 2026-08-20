@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <!-- Máscara con la forma de onda superior -->
+    <clipPath id="wave-clip">
+      <path d="M 0,80 
+               C 150,15 300,145 450,80 
+               C 600,15 750,145 900,80 
+               C 1050,15 1150,110 1200,80 
+               L 1200,300 L 0,300 Z" />
+    </clipPath>
+
+    <!-- Patrón repetible de franjas verticales con los colores de Gustitos -->
+    <pattern id="gustitos-stripes" width="120" height="300" patternUnits="userSpaceOnUse">
+      <!-- Blanco Neutro (Franja separadora) -->
+      <rect x="0" y="0" width="20" height="300" fill="#F4F6F8" />
+      <!-- Rosa Chicle Pastel -->
+      <rect x="20" y="0" width="20" height="300" fill="#F3B4C8" />
+      <!-- Azul Celeste Fresco -->
+      <rect x="40" y="0" width="20" height="300" fill="#60C4E7" />
+      <!-- Lila Pastel -->
+      <rect x="60" y="0" width="20" height="300" fill="#C2A2D3" />
+      <!-- Amarillo Crema / Vainilla -->
+      <rect x="80" y="0" width="20" height="300" fill="#E5E3A1" />
+      <!-- Blanco Neutro (Franja separadora) -->
+      <rect x="100" y="0" width="20" height="300" fill="#F4F6F8" />
+    </pattern>
+  </defs>
+
+  <!-- Rectángulo recortado con la máscara de la onda -->
+  <rect width="1200" height="300" fill="url(#gustitos-stripes)" clip-path="url(#wave-clip)" />
+</svg>

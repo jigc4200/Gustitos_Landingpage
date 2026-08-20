@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+  variant?: 'cream' | 'lilac';
+}
+
+const { title, description, price, image, variant = 'cream' } = Astro.props;
+
+const bgClass = variant === 'cream' ? 'bg-cream-vanilla' : 'bg-pastel-lilac';
+---
+
+<article
+  class={`group relative flex flex-col items-center rounded-cards ${bgClass} p-6 transition-transform hover:-translate-y-2 hover:shadow-xl`}
+>
+  <div class="relative -mt-16 mb-4 h-44 w-44 sm:h-52 sm:w-52">
+    <img
+      src={image}
+      alt={title}
+      class="h-full w-full object-contain shadow-product transition-transform group-hover:scale-110"
+    />
+  </div>
+
+  <span
+    class="rounded-buttons bg-bubblegum-pink px-3 py-1 font-sans-gustitos text-caption font-bold text-cocoa-brown"
+  >
+    {price}
+  </span>
+
+  <h3
+    class="mt-4 text-center font-sans-gustitos text-heading-sm font-bold leading-tight text-cocoa-brown"
+  >
+    {title}
+  </h3>
+
+  <p class="mt-2 text-center text-body-sm leading-relaxed text-cocoa-brown/80">
+    {description}
+  </p>
+
+  <button
+    class="mt-6 rounded-buttons bg-bubblegum-pink px-6 py-2.5 font-sans-gustitos text-body-sm font-bold text-cocoa-brown transition-transform hover:scale-105 hover:shadow-md"
+  >
+    Ver detalles
+  </button>
+</article>
